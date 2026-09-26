@@ -1,0 +1,75 @@
+name: 🐛 Bug Report
+description: Report a bug in the CLI scraper tool
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the details below so we can reproduce and fix the issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: Tool Version
+      description: Run `uv pip show asset-scraper` and paste your version number.
+      placeholder: "Version: 0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command Run
+      description: The exact CLI command/flags you used
+      render: shell
+      placeholder: "uv run asset-scraper https://example.com"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Include which assets failed (images, CSS, JS, fonts, etc.)
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Output / Logs
+      description: Paste your scraper.log output here. Default location is ~/output/scraper.log
+      render: text
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues to make sure this isn't a duplicate
+          required: true
+        - label: I'm using the latest version of the tool
+          required: false
