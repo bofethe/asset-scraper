@@ -1,0 +1,23 @@
+[project]
+name = "asset-scraper"
+version = "0.1.0"
+description = "Download media assets from a web page into extension-based folders"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "httpx>=0.28.1",
+    "loguru>=0.7.3",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+asset-scraper = "asset_scraper.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.8.0,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "asset_scraper"
+module-root = "."
